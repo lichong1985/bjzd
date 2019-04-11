@@ -18,7 +18,7 @@ var mode;
             _this.initShape(w, h);
             _this.initpost(x, fx, w, h);
             _this.initDisp(w, h, name);
-            _this.type = 2;
+            _this.type = p2.Body.KINEMATIC;
             return _this;
         }
         BulidingBase.prototype.initShape = function (w, h) {
@@ -40,7 +40,7 @@ var mode;
             }
             this.addShape(this.boxShape1, [0, y], 0);
             this.boxShape1.collisionMask = Tools.TOU;
-            this.boxShape1.collisionGroup = Tools.JI_GUANG;
+            this.boxShape1.collisionGroup = Tools.REN;
         };
         //初始化位置 1下方 -1上方
         BulidingBase.prototype.initpost = function (x, fx, w, h) {

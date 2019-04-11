@@ -16,6 +16,7 @@ var scene;
             var _this = _super.call(this) || this;
             _this.initBG();
             _this.initTest();
+            _this.addShuKeListener();
             return _this;
         }
         DaScene.prototype.initBG = function () {
@@ -27,6 +28,17 @@ var scene;
         DaScene.prototype.initTest = function () {
             this.jz = new scene.TestScene();
             this.addChildAt(this.jz, ceng.bg2);
+        };
+        DaScene.prototype.addShuKeListener = function () {
+            this.touchEnabled = true;
+            this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
+            this.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
+        };
+        DaScene.prototype.mouseUp = function (evt) {
+            this.jz.mouseUp(evt);
+        };
+        DaScene.prototype.mouseDown = function (evt) {
+            this.jz.mouseDown(evt);
         };
         return DaScene;
     }(egret.DisplayObjectContainer));

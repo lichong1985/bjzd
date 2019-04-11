@@ -9,7 +9,7 @@ module scene {
         public world: p2.World;
         public initP2World() {
             this.world = new p2.World();
-            this.world.gravity = [0, 0];
+            this.world.gravity = [0, -10];
             this.addEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);//添加帧同步
         }
 
@@ -79,12 +79,9 @@ module scene {
 
         //---------------------触控相关------------------------------
         public chang_jing_zhuangtai: number = 1;// 1未开始 2已经开始
-        public rem() {
-            this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
-            this.removeEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
-        }
 
-        private mouseUp(evt: egret.TouchEvent) {
+
+        public mouseUp(evt: egret.TouchEvent) {
             if (this.chang_jing_zhuangtai == 1) {
                 this.chang_jing_zhuangtai = 2;
                 this.addPlayer();
@@ -94,9 +91,13 @@ module scene {
         }
 
         //-------------------------------------------------------
-
+        public player: mode.Ren;
         public addPlayer() {
-
+            this.player = new mode.Ren(this);
+            this.addChildAt(this.player.disp, Tools.REN);
+            this.world.addBody(this.player);
+            this.player.position = [0, Tools.getGZ() * 7 / 50];
+            this.player.force = [50, 50];
         }
     }
 }

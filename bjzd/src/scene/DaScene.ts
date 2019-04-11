@@ -4,6 +4,7 @@ module scene {
             super();
             this.initBG();
             this.initTest();
+            this.addShuKeListener();
         }
         //初始化背景
         public bg: bg.BeiJing;
@@ -18,6 +19,19 @@ module scene {
         public initTest() {
             this.jz = new scene.TestScene();
             this.addChildAt(this.jz, ceng.bg2);
+        }
+
+        public addShuKeListener() {
+            this.touchEnabled = true
+            this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
+            this.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
+        }
+
+        private mouseUp(evt: egret.TouchEvent) {
+            this.jz.mouseUp(evt);
+        }
+        public mouseDown(evt: egret.TouchEvent) {
+            this.jz.mouseDown(evt);
         }
 
     }

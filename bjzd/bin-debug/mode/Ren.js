@@ -12,10 +12,15 @@ var mode;
 (function (mode) {
     var Ren = (function (_super) {
         __extends(Ren, _super);
-        function Ren() {
+        function Ren(scene) {
             var _this = _super.call(this, { mass: 1 }) || this;
             //激光锁定建筑物
             _this.result = new p2.RaycastResult(); //光线投射
+            _this.rayClosest = new p2.Ray({
+                mode: p2.Ray.CLOSEST
+            });
+            _this.hitPoint = p2.vec2.create();
+            _this.scene = scene;
             _this.initDisp();
             _this.initShape();
             return _this;
@@ -40,6 +45,7 @@ var mode;
             this.boxShape1.collisionMask = Tools.TOU;
             this.boxShape1.collisionGroup = Tools.TOU;
         };
+        //锁定
         Ren.prototype.suoding = function () {
         };
         return Ren;

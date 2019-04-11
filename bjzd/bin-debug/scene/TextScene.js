@@ -17,13 +17,15 @@ var scene;
             //添加建筑物
             _this.x_mark_x = 0; //横坐标标记 下
             _this.x_mark_s = 0; //横坐标标记 上
+            //---------------------触控相关------------------------------
+            _this.chang_jing_zhuangtai = 1; // 1未开始 2已经开始
             _this.initP2World();
             _this.test_init();
             return _this;
         }
         TestScene.prototype.initP2World = function () {
             this.world = new p2.World();
-            this.world.gravity = [0, 0];
+            this.world.gravity = [0, -10];
             this.addEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this); //添加帧同步
         };
         //添加游戏引擎帧同步
@@ -77,6 +79,21 @@ var scene;
             this.addBuild(1, 1, 1, "jz_png");
             this.addBuild(1, 2, 1, "jz_png");
             this.addBuild(1, 1, 1, "jz_png");
+        };
+        TestScene.prototype.mouseUp = function (evt) {
+            if (this.chang_jing_zhuangtai == 1) {
+                this.chang_jing_zhuangtai = 2;
+                this.addPlayer();
+            }
+        };
+        TestScene.prototype.mouseDown = function (evt) {
+        };
+        TestScene.prototype.addPlayer = function () {
+            this.player = new mode.Ren(this);
+            this.addChildAt(this.player.disp, Tools.REN);
+            this.world.addBody(this.player);
+            this.player.position = [0, Tools.getGZ() * 7 / 50];
+            this.player.force = [50, 50];
         };
         return TestScene;
     }(egret.DisplayObjectContainer));
