@@ -1,0 +1,40 @@
+{
+	"groups": [
+		{
+			"keys": "bg_jpg,egret_icon_png,description_json,jz_png,bg_png,ren_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "bg_jpg",
+			"type": "image",
+			"url": "assets/bg.jpg"
+		},
+		{
+			"name": "egret_icon_png",
+			"type": "image",
+			"url": "assets/egret_icon.png"
+		},
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "jz_png",
+			"type": "image",
+			"url": "tj/jz.png"
+		},
+		{
+			"name": "bg_png",
+			"type": "image",
+			"url": "tj/bg.png"
+		},
+		{
+			"name": "ren_png",
+			"type": "image",
+			"url": "tj/ren.png"
+		}
+	]
+}

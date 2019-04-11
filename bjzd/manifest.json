@@ -1,0 +1,24 @@
+{
+	"initial": [
+		"libs/modules/egret/egret.js",
+		"libs/modules/egret/egret.web.js",
+		"libs/modules/game/game.js",
+		"libs/modules/tween/tween.js",
+		"libs/modules/assetsmanager/assetsmanager.js",
+		"libs/modules/promise/promise.js",
+		"libs/modules/physics/physics.js"
+	],
+	"game": [
+		"bin-debug/mode/Ren.js",
+		"bin-debug/LoadingUI.js",
+		"bin-debug/MainR.js",
+		"bin-debug/Platform.js",
+		"bin-debug/mode/BuildingBase.js",
+		"bin-debug/Main.js",
+		"bin-debug/scene/BeiJing.js",
+		"bin-debug/scene/DaScene.js",
+		"bin-debug/scene/TextScene.js",
+		"bin-debug/tools/CengCon.js",
+		"bin-debug/tools/Tools.js"
+	]
+}
