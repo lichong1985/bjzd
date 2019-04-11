@@ -7,7 +7,7 @@ module mode {
             this.initShape(w, h);
             this.initpost(x, fx, w, h);
             this.initDisp(w, h, name);
-            this.type = p2.Body.KINEMATIC; //112222333
+            this.type = p2.Body.KINEMATIC; //112222333666
         }
 
         //初始化形状
